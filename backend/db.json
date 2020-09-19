@@ -1,0 +1,86 @@
+{
+    "meetups": [
+      {
+        "id": 1,
+        "name": "",
+        "image":"kajsas kör",
+        "location": "",
+        "date": ""
+          
+        
+      },
+      {
+        "id": 2,
+        "name": "",
+        "image":"",
+        "location": "",
+        "date": ""
+          
+        
+      },
+      {
+        "id": 3,
+        "name": "",
+        "image":"",
+        "location": "",
+        "date": ""
+          
+        
+      },
+      {
+        "id": 4,
+        "name": "",
+        "image":"",
+        "location": "",
+        "date": ""
+          
+        
+      },
+      {
+        "id": 5,
+        "name": "",
+        "image":"",
+        "location": "",
+        "date": ""
+          
+        
+      },
+      {
+        "id": 6,
+        "name": "",
+        "image":"",
+        "location": "",
+        "date": ""
+          
+        
+      },
+      {
+        "id": 7,
+        "name": "",
+        "image":"",
+        "location": "",
+        "date": ""
+          
+        
+      },
+      {
+        "id": 8,
+        "name": "",
+        "image":"",
+        "location": "",
+        "date": ""
+          
+        
+      },
+      {
+        "id": 9,
+        "name": "",
+        "image":"",
+        "location": "",
+        "date": ""
+          
+        
+      }
+
+    ]
+}
