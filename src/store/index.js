@@ -1,24 +1,34 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-import kajsas from "./assets/kajsas.jpg";
-import meditera from "./assets/meditera.jpg";
-import outdoorspeaking from "./assets/outdoorspeaking.jpg";
-import travel from "./assets/travel.jpg";
-import whiskey from "./assets/whiskey.jpg";
-import womensfika from "./assets/womensfika.jpg";
-import familyskiing from "./assets/familyskiing.jpg";
-import healthycooking from "./assets/healthycooking.jpg";
-import palace from "./assets/palace.jpg";
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    events:[]
   },
   mutations: {
+    getEvents(state, data) {
+      state.events = data.data;
+    },
+    createEvent(state,newEvent){
+      state.events.push (newEvent);
+    }
   },
   actions: {
+    async getEvents(context) {
+      const data = await axios.get('http://localhost:3000/meetups') ;
+      context.commit("getEvents", data);
+    },
+    async createEvent(context,newEvent) {
+      this.state.loading = true;
+      await  axios.post('http://localhost:3000/meetups',newEvent, { headers: {
+        "Content-Type": "application/json"
+      },
+    });
+      context.commit("createEvent", newEvent);
+    }
   },
   modules: {
   }

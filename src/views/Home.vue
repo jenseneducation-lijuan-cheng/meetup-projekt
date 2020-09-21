@@ -1,21 +1,37 @@
 <template>
   <div class="home">
-  <Header/>
+    <Header />
+    <Events v-bind:events="meetups" />
+    <Footer/>
   </div>
 </template>
 
 <script>
-import Header from '../components/Header'
+import Header from "../components/Header";
+import Events from "../components/Events";
+import Footer from "../components/Footer"
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    Header
-  
-  }
-}
+    Header,
+    Events,
+    Footer
+  },
+  computed:{
+
+     meetups(){
+       return this.$store.state.events
+
+     }
+  },
+  created() {
+    
+      this.$store.dispatch("getEvents");
+    
+  },
+};
 </script>
 
 <style  lang ="scss" scoped>
 @import "../assets/scss/main.scss";
-
 </style>

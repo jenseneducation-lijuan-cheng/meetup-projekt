@@ -1,6 +1,7 @@
 @import "./typography.scss";
 @import "./variables.scss";
 @import "./button.scss";
+@import "./form.scss";
 
 *::after,
 *::before,
@@ -12,5 +13,4 @@
 
 body {
   background: $light-gray2;
-  color: $dark-gray;
 }

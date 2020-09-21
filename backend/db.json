@@ -1,86 +1,76 @@
 {
-    "meetups": [
-      {
-        "id": 1,
-        "name": "",
-        "image":"kajsas kör",
-        "location": "",
-        "date": ""
-          
-        
-      },
-      {
-        "id": 2,
-        "name": "",
-        "image":"",
-        "location": "",
-        "date": ""
-          
-        
-      },
-      {
-        "id": 3,
-        "name": "",
-        "image":"",
-        "location": "",
-        "date": ""
-          
-        
-      },
-      {
-        "id": 4,
-        "name": "",
-        "image":"",
-        "location": "",
-        "date": ""
-          
-        
-      },
-      {
-        "id": 5,
-        "name": "",
-        "image":"",
-        "location": "",
-        "date": ""
-          
-        
-      },
-      {
-        "id": 6,
-        "name": "",
-        "image":"",
-        "location": "",
-        "date": ""
-          
-        
-      },
-      {
-        "id": 7,
-        "name": "",
-        "image":"",
-        "location": "",
-        "date": ""
-          
-        
-      },
-      {
-        "id": 8,
-        "name": "",
-        "image":"",
-        "location": "",
-        "date": ""
-          
-        
-      },
-      {
-        "id": 9,
-        "name": "",
-        "image":"",
-        "location": "",
-        "date": ""
-          
-        
-      }
-
-    ]
+  "meetups": [
+    {
+      "id": 1,
+      "name": "Kajsas kör",
+      "type": "Adventure",
+      "image": "kajsaskör.jpg",
+      "location": "Stockholm",
+      "date": "2020-9-30 09:00"
+    },
+    {
+      "id": 2,
+      "name": "Gammalt slott",
+      "type": "Adventure",
+      "image": "palace.jpg",
+      "location": "Stockholm",
+      "date": "2020-10-01 9:00"
+    },
+    {
+      "id": 3,
+      "name": "Skidor",
+      "type": "Adventure",
+      "image": "familyskiing.jpg",
+      "location": "Åre",
+      "date": "2020-12-20 10:00"
+    },
+    {
+      "id": 4,
+      "name": "Yoga",
+      "type": "Health",
+      "image": "yoga.jpg",
+      "location": "Nacka",
+      "date": "2021-6-20 13:00"
+    },
+    {
+      "id": 5,
+      "name": "Meditera",
+      "type": "Health",
+      "image": "meditera.jpg",
+      "location": "Uppsala",
+      "date": "2020-10-20 13:00"
+    },
+    {
+      "id": 6,
+      "name": "Matlagning",
+      "type": "Health",
+      "image": "healthycooking.jpg",
+      "location": "Gamla stan",
+      "date": "2021-6-15 9:00"
+    },
+    {
+      "id": 7,
+      "name": "Fika",
+      "type": "Social",
+      "image": "womensfika.jpg",
+      "location": "Enskede huset",
+      "date": "2021-3-2 10:00"
+    },
+    {
+      "id": 8,
+      "name": "Whiskey party",
+      "type": "Social",
+      "image": "whiskey.jpg",
+      "location": "Pelles Bar",
+      "date": "2020-11-12 17:00"
+    },
+    {
+      "id": 9,
+      "name": "Titta på video",
+      "type": "Social",
+      "image": "travel.jpg",
+      "location": "Johanneshov",
+      "date": "2020-11-20 19:00"
+    }
+  ]
 }
