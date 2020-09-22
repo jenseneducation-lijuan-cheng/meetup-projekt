@@ -1,25 +1,36 @@
 <template>
-  
-<div class="userSearch">
-      <input
-        class="search-input"
-        type="text"
-        v-model="userInput"
-      />
-      <button class="search-btn" @click="showMatch"></button>
-    </div>
-
+  <div class="userSearch">
+    <input class="search-input" type="text" v-model="userInput" @keyup="showList" />
+    <button class="search-btn" @click="showList"></button>
+  </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            userInput:''
-        }
-    }
-
-}
+  props: ["events"],
+  data() {
+    return {
+      userInput: "",
+    };
+  },
+  computed: {
+    filteredEvents() {
+      return this.events.filter((event) => {
+        return event.name.match(new RegExp(this.userInput, "i"));
+      });
+    },
+  },
+  methods: {
+    showList() {
+      if (this.userInput === "") {
+        this.$emit("meetupMatch", this.events);
+      } else {
+        //this.isVisible = true;
+        this.$emit("meetupMatch", this.filteredEvents);
+      }
+    },
+  },
+};
 </script>
 
 <style lang ="scss" scoped>
@@ -28,14 +39,13 @@ export default {
   display: flex;
   position: relative;
   width: 400px;
-
 }
 
 .search-input {
   height: 40px;
   padding: 10px;
   z-index: 2;
- 
+
   border: none;
   border-radius: 5px;
   width: 100%;
@@ -81,6 +91,4 @@ export default {
   border-top: solid 2px rgb(158, 136, 8);
   transform: rotate(45deg);
 }
-
-
 </style>

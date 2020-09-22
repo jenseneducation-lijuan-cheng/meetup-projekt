@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Header />
-    <Events v-bind:events="meetups" />
+    <Header v-bind:events="meetups" v-on:meetupmatch="setMatch($event)"/>
+    <Events v-bind:events="filteredMeetups" />
     <Footer/>
   </div>
 </template>
@@ -24,11 +24,18 @@ export default {
 
      }
   },
-  created() {
-    
-      this.$store.dispatch("getEvents");
-    
+  methods:{
+     setMatch(meetups) {
+      this.filteredMeetups = meetups;
+    },
   },
+  async created() {
+      await this.$store.dispatch("getEvents");
+      this.filteredMeetups = this.meetups
+  },
+  data:() =>({
+    filteredMeetups: [],
+  })
 };
 </script>
 
