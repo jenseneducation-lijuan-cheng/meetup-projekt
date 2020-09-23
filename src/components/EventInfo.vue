@@ -1,32 +1,30 @@
 <template>
-  <div class="meetup">
-    <router-link v-bind:to='"/eventsInfo/" + event.id' class="noLine">
-    <div class="imageContainer">
-      <img :src="`${publicPath}images/${event.image}`" />
+    <div class="wrapp-info">
+      <div class="inner">
+          <img v-bind:src="`${publicPath}images/${event.image}`"/>
+          
+      </div>
+      <h3>{{event.name}}</h3>
+      <div>{{event.location}}</div>
+      <h4>{{event.date}}</h4>
+      
     </div>
-    <h3>{{event.name}}
-    </h3>
-    <div>{{event.location}}</div>
-    <h4>{{event.date}}</h4>
-    </router-link>
-  </div>
-
 </template>
 
 <script>
 export default {
   props: ["event"],
   data() {
-    return {
-      publicPath: process.env.BASE_URL,
-    };
-  },
+      return {
+          publicPath: process.env.BASE_URL,
+      }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/scss/main.scss";
-.meetup {
+.wrapp-info {
   background: $white;
   margin: 16px;
   display: flex;
@@ -35,7 +33,7 @@ export default {
   justify-content: center;
   box-shadow: 1px 1px 8px #888888;
   width: 400px;
-  .imageContainer {
+  .inner {
     overflow: hidden;
     width: 300px;
     height: 300px;
@@ -49,15 +47,12 @@ export default {
       transform: translateX(-50%);
     }
   }
+
   h3{
     color:$black;
   }
   h4{
     color: $black;
-  }
-  .noLine{
-    text-decoration: none;
-    color:$dark-gray;
   }
 }
 </style>

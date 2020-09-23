@@ -71,6 +71,14 @@
       "image": "travel.jpg",
       "location": "Johanneshov",
       "date": "2020-11-20 19:00"
+    },
+    {
+      "name": "Johans Lön",
+      "location": "Stockholm",
+      "date": "2020-09-25 00:00",
+      "type": "Health",
+      "image": "whiskey.jpg",
+      "id": 10
     }
   ]
 }

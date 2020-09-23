@@ -61,15 +61,15 @@ export default {
   left: -20px;
   border-radius: 0 4px 4px 0;
   z-index: 999;
-
-  &:hover::after {
+}
+  /*&:hover::after {
     border-top: solid 2px lightsalmon;
-  }
+  }*/
 
-  &:hover::before {
+  /*&:hover::before {
     box-shadow: 0 0 0 2px lightblue;
   }
-}
+}*/
 
 .search-btn::before {
   position: absolute;

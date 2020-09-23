@@ -1,6 +1,7 @@
 <template>
   <div class="admin">
      <Header/>
+     <router-link class="back" to="/">Tillbaka</router-link>
       <div class="container">
       <Form/>
       </div>
@@ -33,10 +34,11 @@ export default {
   justify-content: space-between;
   
 
-  .admin-logo{
+  /*.admin-logo{
       margin: 24px auto auto 24px;
       color:$white;
-  }
+  }*/
+
   .container{
       width: 1150px;
       height: 100%;
@@ -47,6 +49,14 @@ export default {
     
   }
  
+   .back{
+            color:$darkPurple;
+            //margin-left: 10px;
+            margin-top: 150px;
+            font-weight: bold;
+            position: absolute;
+            left:30px;
+            text-decoration: none;
+   }
 }
-
 </style>

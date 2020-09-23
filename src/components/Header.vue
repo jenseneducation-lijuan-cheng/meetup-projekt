@@ -7,7 +7,9 @@
     <div class="search">
       <Search v-bind:events="events" v-on:meetupMatch="$emit('meetupmatch', $event)" />
     </div>
+    <div class="goPageContainer">
     <h3 @click="$router.push('/userMeetup')" class="goPage">Skapa din meetup</h3>
+    </div>
   </div>
 </template>
 
@@ -41,16 +43,37 @@ export default {
     font-size: 3rem;
     text-align: center;
   }
-  .goPage {
-    height: 50px;
+  .goPageContainer {
+    border: 1px solid white;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: $blue;
     letter-spacing: 2px;
-    cursor: pointer;
-    margin: 30px 20px 0px 0px;
+    border-radius: 4px;
     &:hover {
       color: $pink;
+      background-color: $darkPurple;
     }
+    h3 {
+      margin: 0;
+    }
+    margin: 30px 20px 0px 0px;
+    padding: 10px;
+/*.goPage {
+    
+    
+    
+    color: $blue;
+    letter-spacing: 2px;
+    
+    /**/
+    
+  /*}*/
   }
+  
   .search {
     align-self: center;
   }

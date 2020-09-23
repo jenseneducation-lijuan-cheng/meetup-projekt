@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import UserMeetup from '../views/UserMeetup.vue'
+import EventsInfo from '../views/EventsInfo.vue'
+import Attend from '../views/Attend.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +17,16 @@ const routes = [
     path:'/userMeetup',
     name:'UserMeetup',
     component:UserMeetup
+  },
+  {
+    path:'/eventsInfo/:id',
+    name:"EventsInfo",
+    component:EventsInfo
+  },
+  {
+    path:'/attend/:id',
+    name:Attend,
+    component:Attend
   }
 ]
 
