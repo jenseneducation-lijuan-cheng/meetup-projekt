@@ -20,6 +20,7 @@ describe("Events", () => {
       propsData: { events },
       stubs: {
         Header: true,
+        "router-link": true
       },
     });
 

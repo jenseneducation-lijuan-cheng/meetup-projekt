@@ -48,15 +48,5 @@ export default {
        
     
   }
- 
-   .back{
-            color:$darkPurple;
-            //margin-left: 10px;
-            margin-top: 150px;
-            font-weight: bold;
-            position: absolute;
-            left:30px;
-            text-decoration: none;
-   }
 }
 </style>

@@ -2,10 +2,12 @@
 <div class="overlay">
   <div class="review">
     <h2>{{text}}</h2>
+    <div class="heart">
    <LikeHeart/>
-   <textarea rows=5 cols=50 placeholder="Skriv recension här"></textarea>
+    </div>
+   <textarea rows=5 cols=50 placeholder="Skriv recension här" class="text1"></textarea>
    <span class="close" @click="close()">X</span>
-   <button>Skicka recension</button>
+   <button class="recension">Skicka recension</button>
   </div>
 </div>
 </template>
@@ -34,7 +36,7 @@ export default {
     z-index: 10000;
     display: flex;
     justify-content: center;
-    background-color: rgba(66, 26, 14, 0.7);
+    background-color: rgba(88, 41, 27, 0.7);
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -47,10 +49,18 @@ export default {
   display: flex;
   align-self: center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   box-shadow: 1px 1px 8px #888888;
   width: 600px;
+  height: 80%;
+     .text1{
+     outline: none;
+     padding: 10px;
+ }
+ .heart{
+   align-self: center;
+ }
+
   .close {
     position: absolute;
     top: 10px;
@@ -60,6 +70,12 @@ export default {
   h2{
     color: $black;
   }
+  .recension{
+     border-radius: 5px;
+     width: 300px;
+     align-self: center;
+  }
+  
 }
 }
 </style>

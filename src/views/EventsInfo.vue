@@ -6,7 +6,7 @@
     </div>
     <div class="pushButton">
     <button class="push" @click="goToAttend">anmäla sig till meetups</button>
-    <button class="push" @click="toggleReview()">Skriv Recension </button>
+    <button class="push" @click="toggleReview()" :disabled="!attend">{{buttontext}} </button>
     </div>
     <div>
     <Review v-if="review" @closeReview="toggleReview()"/> 
@@ -29,10 +29,12 @@ export default {
    },
    data: () => ({
      review: false,
+     text1:"Skriv Recension",
+     text2:"Anmäl dig för att skriva recension"
    }),
   computed:{
      eventId() {
-       return this.$route.params.id
+       return parseInt(this.$route.params.id)
      },
      meetups(){
        return this.$store.state.events
@@ -40,6 +42,16 @@ export default {
      },
      meetup(){
        return this.meetups.find(event => event.id == this.eventId)
+     },
+     attend(){
+       return this.$store.state.attendEvents.indexOf(this.eventId)!= -1
+     },
+     buttontext(){
+       if(this.attend){
+       return this.text1
+       }else{
+         return this.text2
+       }
      }
   },
   methods:{
