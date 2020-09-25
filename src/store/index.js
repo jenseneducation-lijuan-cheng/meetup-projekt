@@ -9,6 +9,7 @@ export default new Vuex.Store({
     events: [],
     attendEvents: [],
     user: {},
+    reviews:[]
   },
   mutations: {
     getEvents(state, data) {
@@ -17,10 +18,16 @@ export default new Vuex.Store({
     createEvent(state, newEvent) {
       state.events.push(newEvent);
     },
+    getReviews(state,data){
+      state.reviews = data.data
+    },
     saveUser(state, user) {
       localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
     },
+    createReview(state,newReview){
+      state.reviews.push(newReview)
+    }
   },
   actions: {
     async getEvents(context) {
@@ -46,7 +53,21 @@ export default new Vuex.Store({
       if (!context.state.attendEvents.indexOf(eventId) !== -1) {
         context.state.attendEvents.push(eventId)
       }
-    }
+    },
+    async createReview(context, newReview) {
+      this.state.loading = true;
+      await axios.post("http://localhost:3000/reviews", newReview, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      context.commit("createReview", newReview);
+    },
+
+    async getReviews(context) {
+      const data = await axios.get("http://localhost:3000/reviews");
+      context.commit("getReviews", data);
+    },
   },
   modules: {},
 });

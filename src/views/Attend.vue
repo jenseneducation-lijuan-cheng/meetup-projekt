@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <Header />
-   <router-link class="back" to="/">Tillbaka</router-link>
+   <router-link class="back" :to="`/eventsinfo/${eventId}`">Tillbaka</router-link>
     <div class="attend" v-if="!attending">
       <h2>Anmäla</h2>
 

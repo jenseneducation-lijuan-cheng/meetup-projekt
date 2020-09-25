@@ -2,14 +2,18 @@
   <div class="infor">
     <Header/>
     <div class="inforContainer">
+     <div class=container>
     <EventInfo v-bind:event="meetup"/>
-    </div>
     <div class="pushButton">
     <button class="push" @click="goToAttend">anmäla sig till meetups</button>
     <button class="push" @click="toggleReview()" :disabled="!attend">{{buttontext}} </button>
     </div>
+    </div>
+     <div class="show"><ShowReview :reviews="reviews" v-if="reviews.length>0"/>
+    </div>
+    </div>
     <div>
-    <Review v-if="review" @closeReview="toggleReview()"/> 
+    <Review :eventId="eventId" v-if="review" @closeReview="toggleReview()" @getReview="saveAll($event)"/> 
     </div>
     <Footer/>
   </div>
@@ -20,12 +24,14 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import EventInfo from "../components/EventInfo";
 import Review from "../components/Review";
+import ShowReview from "../components/ShowReview"
 export default {
    components:{
      Header,
      Footer,
      EventInfo,
-     Review
+     Review,
+     ShowReview
    },
    data: () => ({
      review: false,
@@ -33,6 +39,9 @@ export default {
      text2:"Anmäl dig för att skriva recension"
    }),
   computed:{
+    reviews() {
+      return this.$store.state.reviews.filter(review => review.eventId == this.eventId)
+    },
      eventId() {
        return parseInt(this.$route.params.id)
      },
@@ -60,12 +69,24 @@ export default {
     },
     toggleReview() {
       this.review = !this.review;
-    }
+    },
+      async saveAll(review){
+       await this.$store.dispatch('createReview',review)
+       this.getAll()
+       
+
+       },
+       getAll(){
+         this.$store.dispatch('getReviews')
+       }
+    
 
   },
   async created() {
     await this.$store.dispatch("getEvents")
+    await this.getAll()
   }
+  
 }
 </script>
 
@@ -78,10 +99,11 @@ export default {
   flex-direction:column;
   justify-content: space-between;
   .pushButton{
-    width: 400px;
+    //width: 400px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    //margin-bottom:50px;
   .push {
     border-radius: 3px;
     width: 169px;
@@ -91,8 +113,12 @@ export default {
     line-height: 17px;
     align-self: center;
     color:$dark-gray;
-    margin-top: 50px;
   }
-  }  
+  } 
+  .inforContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 </style>

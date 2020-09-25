@@ -3,11 +3,11 @@
   <div class="review">
     <h2>{{text}}</h2>
     <div class="heart">
-   <LikeHeart/>
+   <LikeHeart @newPoint="setPoints($event)"/>
     </div>
-   <textarea rows=5 cols=50 placeholder="Skriv recension här" class="text1"></textarea>
+   <textarea rows=5 cols=50 maxlength="140" placeholder="Skriv recension här" class="text1" v-model="textrecension"></textarea>
    <span class="close" @click="close()">X</span>
-   <button class="recension">Skicka recension</button>
+   <button class="recension" @click="recension()">Skicka recension</button>
   </div>
 </div>
 </template>
@@ -18,13 +18,29 @@ export default {
   components:{
     LikeHeart
   },
+  props: ['eventId'],
   data:() =>({
-    text:"Betyg & Recensioner"
+    text:"Betyg & Recensioner",
+    textrecension:'',
+    likes: 0,
   }),
   methods: {
     close() {
       this.$emit("closeReview")
+    },
+    recension(){
+      
+      this.$emit("getReview" ,{
+        textName:this.textrecension,
+        likes:this.likes,
+        eventId: this.eventId,
+      })
+      this.close()
+    },
+    setPoints(points) {
+      this.likes = points;
     }
+
   }
 
 }
