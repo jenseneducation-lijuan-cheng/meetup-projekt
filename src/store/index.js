@@ -25,6 +25,12 @@ export default new Vuex.Store({
       localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
     },
+    getAttendEvents(state, events) {
+      if (events) {
+        state.attendEvents = events
+      }
+      
+    },
     createReview(state,newReview){
       state.reviews.push(newReview)
     }
@@ -53,6 +59,11 @@ export default new Vuex.Store({
       if (!context.state.attendEvents.indexOf(eventId) !== -1) {
         context.state.attendEvents.push(eventId)
       }
+      localStorage.setItem("listEvents",JSON.stringify(context.state.attendEvents))
+    },
+    async getAttendEvents(context) {
+      let events = localStorage.getItem("listEvents")
+      context.commit("getAttendEvents", JSON.parse(events))
     },
     async createReview(context, newReview) {
       this.state.loading = true;

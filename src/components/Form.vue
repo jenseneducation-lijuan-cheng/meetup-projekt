@@ -1,14 +1,14 @@
 <template>
   <div class="form">
-    <h2>Add Event</h2>
+    <h2>Skapa meetup</h2>
     <div class="part2">
-      <input type="text" class="put long" placeholder="Name" v-model="newEvent.name" />
-      <input type="text" class="put long" placeholder="Where" v-model="newEvent.location" />
+      <input type="text" class="put long" placeholder="Namn" v-model="newEvent.name" />
+      <input type="text" class="put long" placeholder="Plats" v-model="newEvent.location" />
       <input
         type="text"
         onfocus="(this.type='date')"
         class="put long"
-        placeholder="Date"
+        placeholder="Datum"
         v-model="newEvent.date"
       />
     </div>
@@ -17,7 +17,7 @@
         type="text"
         onfocus="(this.type='time')"
         class="put long"
-        placeholder="From Time"
+        placeholder="Tid"
         v-model="time"
       />
     </div>

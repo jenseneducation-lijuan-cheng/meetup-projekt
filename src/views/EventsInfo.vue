@@ -76,8 +76,9 @@ export default {
        
 
        },
-       getAll(){
-         this.$store.dispatch('getReviews')
+       async getAll(){
+         await this.$store.dispatch('getReviews')
+         await this.$store.dispatch('getAttendEvents')
        }
     
 
