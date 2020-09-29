@@ -79,9 +79,22 @@
       "type": "Health",
       "image": "whiskey.jpg",
       "id": 10
+    },
+    {
+      "name": "Min meetup",
+      "location": "Hemma",
+      "date": "2020-10-01 18:00",
+      "type": "Health",
+      "image": "whiskey.jpg",
+      "id": 11
     }
   ],
   "reviews": [
-    
+    {
+      "textName": "bra bra",
+      "likes": 2,
+      "eventId": 7,
+      "id": 1
+    }
   ]
 }
