@@ -48,7 +48,7 @@
         </optgroup>
       </select>
     </div>
-    <button @click="createEvents" class="formButton">Add the event</button>
+    <button @click="createEvents" class="formButton">Skapa meetup</button>
     <p class="error-text" v-show="!valid">Please fill in the blanks</p>
   </div>
 </template>
