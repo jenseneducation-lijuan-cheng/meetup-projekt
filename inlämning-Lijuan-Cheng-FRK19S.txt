@@ -1,0 +1,14 @@
+Github-repo: https://github.com/jenseneducation-lijuan-cheng/meetup-projekt
+
+Jag har använt Heroku för att publicera appen.
+
+https://meetup-lijuan.herokuapp.com/
+
+Mina level ups: Planera event, API/databas, sortera/filtrera
+
+Det viktigaste kursen har handlat om: Kursen har handlat om alla steg man behöver för att bygga en hel app. Först planering, 
+till exempel börjar med en skiss, sen hur man jobbar med projekten, hur man kodar med
+TDD, ibland är det svårt att alltid koda test i början, trots att man är klar med gröna test men man ändrar kod i implementationen 
+då behöver man ibland ändra test också. Men trots att skriva TDD först är svårt och långsamt så är det säkert.  Och sen hur man kan publicera appen. till exempel ibland funkar inte bara följa varjer steg 
+utan det finns allt problem som behöver man lösa.
+Så jag tycker att det viktigaste med den här kursen var att få kunskap om hela processen när man bygger en app.
