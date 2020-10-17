@@ -63,28 +63,9 @@
       "image": "whiskey.jpg",
       "location": "Pelles Bar",
       "date": "2020-11-12 17:00"
-    },
-    {
-      "id": 9,
-      "name": "Titta på video",
-      "type": "Social",
-      "image": "travel.jpg",
-      "location": "Johanneshov",
-      "date": "2020-11-20 19:00"
     }
   ],
   "reviews": [
-    {
-      "textName": "bra bra",
-      "likes": 2,
-      "eventId": 7,
-      "id": 1
-    },
-    {
-      "textName": "HAHAHAHAHA\n",
-      "likes": 3,
-      "eventId": 1,
-      "id": 2
-    }
+    
   ]
 }

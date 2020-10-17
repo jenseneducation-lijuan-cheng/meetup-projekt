@@ -2,6 +2,7 @@
   <div class="infor">
     <Header/>
     <div class="inforContainer">
+       <router-link class="back" to="/">Home</router-link>
      <div class=container>
     <EventInfo v-bind:event="meetup"/>
     <div class="pushButton">
@@ -120,6 +121,11 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+     .back{
+    position: absolute;
+    top:0px;
   }
+  }
+ 
 }
 </style>
