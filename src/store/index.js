@@ -4,6 +4,11 @@ import axios from "axios";
 
 Vue.use(Vuex);
 
+const apiUrl = "https://api.jsonbin.io/b/5f8b33637243cd7e82506b30"
+const getUrl = `${apiUrl}/latest`
+const secretKey = "$2b$10$3P9DCGUb3gZO19Ni0SwdTuK3m5hvWhs5eQ3NJNR9NLg1495y5ChaG"
+const API = axios.create({ headers: { "secret-key": secretKey, versioning: true, "Content-Type": "application/json" }})
+
 export default new Vuex.Store({
   state: {
     events: [],
@@ -13,13 +18,13 @@ export default new Vuex.Store({
   },
   mutations: {
     getEvents(state, data) {
-      state.events = data.data;
+      state.events = data.data.meetups;
     },
     createEvent(state, newEvent) {
       state.events.push(newEvent);
     },
     getReviews(state,data){
-      state.reviews = data.data
+      state.reviews = data.data.reviews
     },
     saveUser(state, user) {
       localStorage.setItem("user", JSON.stringify(user));
@@ -37,17 +42,14 @@ export default new Vuex.Store({
   },
   actions: {
     async getEvents(context) {
-      const data = await axios.get("http://localhost:3000/meetups");
+      const data = await API.get(getUrl);
       context.commit("getEvents", data);
+      context.commit("getReviews", data);
     },
     async createEvent(context, newEvent) {
       this.state.loading = true;
-      await axios.post("http://localhost:3000/meetups", newEvent, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
       context.commit("createEvent", newEvent);
+      await API.put(apiUrl, { meetups: this.state.events, reviews: this.state.reviews });
     },
     async getUser(context) {
       let user = localStorage.user
@@ -67,17 +69,14 @@ export default new Vuex.Store({
     },
     async createReview(context, newReview) {
       this.state.loading = true;
-      await axios.post("http://localhost:3000/reviews", newReview, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
       context.commit("createReview", newReview);
+      await API.put(apiUrl, { meetups: this.state.events, reviews: this.state.reviews });
     },
 
     async getReviews(context) {
-      const data = await axios.get("http://localhost:3000/reviews");
+      const data = await API.get(getUrl);
       context.commit("getReviews", data);
+      context.commit("getEvents", data);
     },
   },
   modules: {},
